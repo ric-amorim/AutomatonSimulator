@@ -1,3 +1,5 @@
-*.hi
-*.o
+DFA.hi
+DFA.o
 main
+main.hi
+main.o

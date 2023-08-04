@@ -1,4 +1,6 @@
+import NFA
 import DFA
+import TypesDefinition
 import Data.Char
 
 readTransitions :: [String] -> [Transition]
@@ -10,10 +12,12 @@ readTransitions (x:xs) = (from, head symbol, to) : readTransitions xs
                   symboltemp = dropWhile (not . isPunctuation) y
                   symbol = tail symboltemp 
                   toTemp = tail (tail symbol)
-                  to = takeWhile (not .isPunctuation) toTemp
+                  to = takeWhile (not . isPunctuation) toTemp
 
 main :: IO ()
 main = do
+  putStrLn "Choose the automata: DFA or NFA"
+  automataType <- getLine
   putStrLn "Enter set of states, separated by spaces:"
   statesI <-getLine
   putStrLn "Enter set of symbols, separated by spaces:"
@@ -28,13 +32,16 @@ main = do
   let symbols = filter (not . isSpace) symbolsI
   let transitions = readTransitions (words transitionsI)
   let acceptedStates = words acceptedStatesI
-  let automata = (DFA states symbols transitions startState acceptedStates)
+  let automata = Automata states symbols transitions startState acceptedStates
   putStrLn "----------------"
   putStrLn "Automata Created"
   putStrLn "----------------"
-  putStrLn "Enter a string of 0's and 1's:"
+  putStrLn "Enter a string you want to test:"
   input <- getLine
-  let result = accepts automata input
+  let result
+         | automataType == "DFA" = acceptsDFA automata input
+         | automataType == "NFA" = acceptsNFA automata input
+         | otherwise = error "Invalid Type"
   if result
     then putStrLn "Input Accepted! :)"
     else putStrLn "Input Rejected! :("

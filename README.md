@@ -10,7 +10,11 @@ This is a finite automaton simulator developed in Haskell with a graphical inter
 
 ## Prerequisites
 
-Make sure you have the following tool installed on your system IF you want to use the graphical interface:
+Make sure you have the following tool installed on your system:
+
+- GHC: The haskell compiler should be installed to be able to compile the code.
+
+IF you want to use the graphical interface:
 
 - GTK: The GTK library should be installed to compile and run the program with the graphical interface.
 

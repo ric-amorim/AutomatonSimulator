@@ -1,0 +1,1 @@
+ghc interface.hs && ./interface

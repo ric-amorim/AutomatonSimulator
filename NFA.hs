@@ -1,9 +1,6 @@
 module NFA where
 import TypesDefinition
 
--- !!!! test more to see if its good
--- doesnt work if its empty string
-
 
 -- Verify NFA and return a boolean
 acceptsNFA :: Automata -> String -> Bool
@@ -12,6 +9,7 @@ acceptsNFA (Automata states alphabet transitions startState acceptStates) input
   where
     verify state [] = elem state acceptStates
     verify state (x:xs)
+     | x == '_' = verifyAll verify (next:rest) xs
      | elem (state,'E',next) transitions == True = verifyAll verify (next:rest) (x:xs)
      | otherwise = verifyAll verify (next:rest) xs
      where 

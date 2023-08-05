@@ -29,7 +29,7 @@ git clone https://github.com/ric-amorim/AutomatonSimulator.git
 2. Navigate to the project directory:
 
 ```bash 
-cd automaton-simulator
+cd AutomatonSimulator
 ```
 
 ## Usage

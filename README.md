@@ -44,12 +44,12 @@ cd automaton-simulator
 
 2. Fill in the input fields with the automaton details:
 
-    Automaton Type (DFA or NFA)
-    States
-    Alphabet
-    Transitions in the format "(state, symbol, next_state)"  (To use the Epsilon use the letter E) Ex: (state,E,next_state).
-    Initial State
-    Accept States
+    Automaton Type (DFA or NFA) <br />
+    States<br />
+    Alphabet<br />
+    Transitions in the format "(state, symbol, next_state)"  (To use the Epsilon use the letter E) Ex: (state,E,next_state).<br />
+    Initial State<br />
+    Accept States<br />
 
 3. Input the test string and wait for the result.  (To input an empty string use: _ ).
 
